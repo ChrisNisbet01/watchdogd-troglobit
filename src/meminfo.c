@@ -50,12 +50,12 @@ static void cb(uev_t *w, void *arg, int events)
 	char buf[80];
 	FILE *fp;
 	meminfo_t meminfo[] = {
-		{ "MemTotal:",   0 },
-		{ "MemFree:",    0 },
-		{ "Cached:",     0 },
-		{ "SwapCached:", 0 },
-		{ "SwapTotal:",  0 },
-		{ "SwapFree:",   0 },
+		[MEMTOTAL]   = { "MemTotal:",   0 },
+		[MEMFREE]    = { "MemFree:",    0 },
+		[MEMCACHED]  = { "Cached:",     0 },
+		[SWAPTOTAL]  = { "SwapTotal:",  0 },
+		[SWAPFREE]   = { "SwapFree:",   0 },
+		[SWAPCACHED] = { "SwapCached:", 0 },
 		{ NULL, 0 }
 	};
 
