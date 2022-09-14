@@ -18,6 +18,8 @@
 #include "wdt.h"
 #include "script.h"
 
+#include <inttypes.h>
+
 #define PROC_FILE "/proc/meminfo"
 
 static int logmark = 0;
@@ -86,7 +88,7 @@ static void cb(uev_t *w, void *arg, int events)
 				while (isspace(*ptr))
 					ptr++;
 
-				sscanf(ptr, "%u kB", &meminfo[i].val);
+				sscanf(ptr, "%" SCNu32 " kB", &meminfo[i].val);
 			}
 		}
 	}
